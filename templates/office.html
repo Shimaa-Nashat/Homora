@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Offices{% endblock%}
+
+{% block body %}
+    <div class="container my-4">
+        <div class="row">
+            {% for item in items %}
+                <div class="col-md-3 mb-4"> <!-- col-md-3 عشان 4 بطاقات في الصف -->
+                    <div class="card shadow">
+                        <img src="{{ url_for('static', filename='office_photos/' + item.image) }}" class="card-img-top" alt="{{ item.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <p class="card-text">${{ '%.2f'|format(item.price) }}</p>
+                    <!-- زر Add to Cart -->
+                            <form action="{{ url_for('add_to_cart') }}" method="post">
+                                <input type="hidden" name="item_id" value="{{ item.id }}">
+                                <button type="submit" class="btn btn-primary w-100" id="add_to_card">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock%}

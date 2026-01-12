@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Cart{% endblock %}
+{% block body %}
+    <h1 class="cart_header">Your Cart</h1>
+    {% if cart_items %}
+        {% for item in cart_items %}
+            <div class="product_in_cart">
+                <div class="cart-image me-3" id="card_img">
+                    <img src="{{ url_for('static', filename=item.folder ~ '/' ~ item.image) }}" alt="{{ item.name }}" class="img-fluid" style="max-width: 150px;">
+                </div>
+                <div class="cart-details flex-grow-1" style="margin: auto 90px;">
+                    <h5 class="mb-2">{{ item.name }}</h5>
+                    <p class="mb-2">${{ '%.2f'|format(item.price) }}</p>
+
+        <!-- Remove -->
+                    <form action="{{ url_for('remove_from_cart') }}" method="post">
+                        <input type="hidden" name="item_id" value="{{ item.id }}">
+                        <button type="submit" class="btn btn-danger btn-sm" id="remove" style="margin: auto;">Remove</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+        <h5 style="text-align:center;" class="total">
+            Total:    ${{ '%.2f'|format(total) }}
+        </h5>
+    {% else %}
+        <h3 style="margin: 40px auto 20px auto; font-weight: 400; text-align: center;">
+            Your cart is empty.
+        </h3>
+    {% endif %}
+{% endblock %}

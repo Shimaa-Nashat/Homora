@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Homora - Elegant and affordable furniture for every style and home.">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='icon.ico') }}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+        <link rel="stylesheet" href="../static/style.css">
+        <title>Homora</title>
+        <style>
+            /* ===== Navbar ===== */
+            #nav {
+                position: relative;
+                z-index: 10;
+                background-color: #D9D9D9;
+                max-width: 1100px;
+                max-height: 70px;
+                border-radius: 91px;
+                margin: 25px auto -30px auto;
+            }
+
+            .navbar-brand {
+                font-family: 'Comme', sans-serif;
+                color: #2d1e06 !important;
+                font-weight: 600;
+            }
+
+            .nav-item {
+                font-weight: 600;
+                font-family: "Lato", sans-serif;
+            }
+
+            .login-btn {
+                background-color: #2d1e06;
+                color: #cfcfcf;
+                border-radius: 50px;
+                width: 100px;
+                height: 40px;
+                transition: 0.3s;
+            }
+
+            .login-btn:hover {
+                background-color: #0e0b07;
+                color: #cfcfcf;
+            }
+
+            /* ===== Hero Section ===== */
+            .hero {
+                position: relative;
+                width: 100%;
+                max-width: 1250px;
+                margin: 20px auto;
+                height: 520px;
+                border-radius: 20px;
+                overflow: hidden;
+            }
+
+            .hero img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: blur(4px);
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+
+            .hero::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+
+            .hero h1 {
+                position: absolute;
+                top: 70px;
+                left: 50px;
+                font-size: 50px;
+                font-family: 'Playfair Display', serif;
+                font-weight: 700;
+                color: #fffdfd;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+                z-index: 2;
+            }
+
+            .hero-text-left {
+                position: absolute;
+                bottom: 40px;
+                left: 40px;
+                font-size: 40px;
+                font-weight: 700;
+                color: #ffffff;
+                z-index: 2;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            }
+
+            .hero-text-right {
+                position: absolute;
+                top: 50%;
+                right: 60px;
+                transform: translateY(-50%);
+                font-size: 18px;
+                color: #ffffff;
+                max-width: 300px;
+                z-index: 2;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+            }
+
+            .get-started {
+                margin-top: 20px;
+                background: #e6e6e6;
+                border: none;
+                border-radius: 30px;
+                padding: 10px 25px;
+                font-weight: 600;
+                color: #2d1e06;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .get-started:hover {
+                background: #cfcfcf;
+            }
+
+            /* ===== About Section ===== */
+            .section-container {
+                width: 90%;
+                max-width: 1160px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: #cfcfcf;
+                border-radius: 30px;
+            }
+
+            .section-header {
+                font-family: "Inria Serif", serif;
+                font-weight: 600;
+                text-align: center;
+                color: #2d1e06;
+                margin-bottom: 30px;
+            }
+
+            .about-content {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .about-text {
+                flex: 1 1 300px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                line-height: 1.5;
+                color: #000;
+            }
+
+            .about-image {
+                flex: 1 1 300px;
+                text-align: center;
+            }
+
+            .about-image img {
+                width: 100%;
+                max-width: 350px;
+                border-radius: 30px;
+            }
+
+            /* ===== Product Section ===== */
+
+            /* الصف الأول: 3 بطاقات */
+            .cards-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+                justify-items: center;
+                margin-top: 20px;
+            }
+
+            /* كل بطاقة رابط كامل */
+            .product-card {
+                display: block;
+                background-color: #cfcfcf;
+                border-radius: 30px;
+                width: 250px;
+                text-align: center;
+                transition: transform 0.3s;
+                text-decoration: none;
+                /* إزالة أي خط تحت الرابط */
+                color: #000;
+                /* النص أسود */
+            }
+
+            .product-card:hover {
+                transform: scale(0.95);
+            }
+
+            .product-card img {
+                display: block;
+                width: 190px;
+                margin: 25px auto;
+                border-radius: 10px;
+            }
+
+            .product-card h3 {
+                font-family: "Inria Serif", serif;
+                margin-bottom: 20px;
+                color: #000;
+            }
+
+            /* الصف الثاني: 2 بطاقات في المنتصف */
+            .second-row {
+                display: flex;
+                justify-content: center;
+                /* مركزة في المنتصف */
+                gap: 120px;
+                /* المسافة بين البطاقتين */
+                margin-top: 30px;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .cards-container {
+                    grid-template-columns: 1fr;
+                    /* تصبح كل بطاقة في صف واحد */
+                }
+
+                .second-row {
+                    flex-direction: column;
+                    /* تصبح كل بطاقة في صف منفصل */
+                    align-items: center;
+                }
+            }
+
+            /* ===== Footer ===== */
+            .footer {
+                background-color: #2d1e06;
+                color: #cfcfcf;
+                padding: 15px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                margin-top: 30px;
+            }
+
+            .footer p {
+                margin: 0;
+            }
+
+            .social-links {
+                display: flex;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .social-links img {
+                width: 40px;
+                height: 40px;
+                mix-blend-mode: lighten;
+                transition: transform 0.3s;
+                border-radius: 5px;
+            }
+
+            .social-links img:hover {
+                transform: scale(1.1);
+            }
+
+            /* ===== Responsive ===== */
+            @media (max-width: 768px) {
+                .hero {
+                    height: 400px;
+                }
+
+                .hero-text-left {
+                    font-size: 28px;
+                    bottom: 20px;
+                    left: 20px;
+                }
+
+                .hero-text-right {
+                    position: static;
+                    transform: none;
+                    text-align: center;
+                    margin: 20px auto;
+                }
+
+                .about-content {
+                    flex-direction: column;
+                }
+
+                .cards-container {
+                    grid-template-columns: 1fr;
+                    /* عمود واحد على الشاشات الصغيرة */
+                }
+            }
+        </style>
+    </head>
+
+    <body >
+
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg px-4" id="nav">
+            <a href="{{ url_for('index') }}" class="navbar-brand">Homora</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item mx-3"><a class="nav-link active" href="#about-us">About Us</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link active" href="{{ url_for('cart') }}">Cart</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link active" href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </div>
+
+            {% if not username %}
+                <button type="button" class="btn login-btn" onclick="location.href='{{ url_for('login') }}'">Login</button>
+            {% else %}
+                <button type="button" class="btn login-btn" onclick="location.href='{{ url_for('logout') }}'">Logout</button>
+            {% endif %}
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="{{ url_for('static', filename='Home_photos/welcome.jpg') }}" alt="Home Decor">
+            {% if username %}
+                <h1>Hello, {{ username }}</h1>
+            {% endif %}
+            <div class="hero-text-left">
+                Adding Elegance <br> To Your Everyday Home
+            </div>
+            <div class="hero-text-right">
+                Designs that fit every taste, from classic to contemporary,
+                helping you express your style in every corner of your home.
+                <br>
+                <a href="#product"><button class="get-started">Get Started</button></a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="section-container hidden" id="about-us">
+            <h1 class="section-header">About Us</h1>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>We are more than just a furniture store. We are a team passionate about creating designs that combine elegance and comfort, making your home reflect your unique personality.
+                        Since the beginning, our mission has been to provide high-quality furniture with premium materials at affordable prices.<br><br>
+                        We believe every corner of your home deserves a special touch, which is why we continuously design pieces that blend simplicity with functionality, making everyday living easier and more enjoyable.</p>
+                </div>
+                <div class="about-image">
+                    <img src="{{ url_for('static', filename='Home_photos/about.jfif') }}" alt="Stylish Room">
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Section -->
+        <section class="product-section hidden" id="product">
+            <h1 class="section-header">Products</h1>
+
+            <!-- الصف الأول: 3 بطاقات -->
+            <div class="cards-container">
+                <a href="{{ url_for('bedroom') }}" class="product-card">
+                    <img src="{{ url_for('static', filename='Home_photos/bedroom.jfif') }}" alt="Bedroom">
+                    <h3>Bedrooms</h3>
+                </a>
+                <a href="{{ url_for('kitchen') }}" class="product-card">
+                    <img src="{{ url_for('static', filename='Home_photos/Kitchen.jfif') }}" alt="Kitchen">
+                    <h3>Kitchens</h3>
+                </a>
+                <a href="{{ url_for('living') }}" class="product-card">
+                    <img src="{{ url_for('static', filename='Home_photos/living room.jfif') }}" alt="Living Room">
+                    <h3>Living Rooms</h3>
+                </a>
+            </div>
+
+            <!-- الصف الثاني: 2 بطاقات مركزة -->
+            <div class="second-row">
+                <a href="{{ url_for('office') }}" class="product-card">
+                    <img src="{{ url_for('static', filename='Home_photos/Home Office.jfif') }}" alt="Home Office">
+                    <h3>Offices</h3>
+                </a>
+                <a href="{{ url_for('dressing') }}" class="product-card">
+                    <img src="{{ url_for('static', filename='Home_photos/Closet.jfif') }}" alt="Dressing Room">
+                    <h3>Dressing Rooms</h3>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" >
+            <p>&copy; 2025 Homora_Shimaa. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com"><img src="{{ url_for('static', filename='Home_photos/linkedin.jfif') }}" alt="LinkedIn"></a>
+                <a href="https://www.facebook.com"><img src="{{ url_for('static', filename='Home_photos/Facebook.jfif') }}" alt="Facebook"></a>
+                <a href="https://www.instagram.com"><img src="{{ url_for('static', filename='Home_photos/instagram .jfif') }}" alt="Instagram"></a>
+                <a href="https://www.tiktok.com"><img src="{{ url_for('static', filename='Home_photos/Tiktok.jfif') }}" alt="Tiktok"></a>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ url_for('static', filename='scroll-effect.js') }}"></script>
+    </body>
+
+
+</html>
