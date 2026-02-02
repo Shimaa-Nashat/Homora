@@ -1,9 +1,12 @@
 from flask import Flask, redirect, render_template, request, session, flash
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
 from cs50 import SQL
 
 app = Flask(__name__)
 app.secret_key = "your-secret-key"
+ port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
 
 # ================== Database ==================
 db = SQL("sqlite:///database.db")
