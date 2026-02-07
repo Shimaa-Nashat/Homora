@@ -26,7 +26,6 @@ database integration, frontend styling, and interactive JavaScript features.
 ---
 
 ## Features ✨
-- **Browse Products**: Users can explore different categories (kitchens, bedrooms, dressing, etc.).
 - **Add to Cart**: Items can be added to a shopping cart for later purchase.
 - **Responsive Layout**: Built with Bootstrap to support both desktop and mobile screens.
 - **Dynamic Content**: Uses Flask templates (`Jinja2`) to render products dynamically from the database.
