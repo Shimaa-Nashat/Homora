@@ -112,7 +112,8 @@ Follow these steps to set up the project locally:
 ---
 
 ## Screenshots 🖼️
-> *(You can add actual screenshots of your website here)*
+> <img width="1353" height="642" alt="image" src="https://github.com/user-attachments/assets/3fb1dc06-93a8-4348-839a-e0e24f1f209d" />
+
 
 - **Homepage**: Overview of categories with featured furniture.
 - **Kitchens Page**: Displays available kitchens with prices and images.
