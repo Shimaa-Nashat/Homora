@@ -89,7 +89,7 @@ body {
 
 .product_in_cart {
     display: flex;
-    width: 80%;
+    width: 60%;
     padding: 20px 10px;
     gap: 20px;
     justify-content: start;
@@ -139,6 +139,7 @@ body {
     .box {width: 80%;}
     .contact{width: 65%;}
     .card{margin: auto;}
+    .product_in_cart {width: 80%;}
 }
 @media (max-width: 768px) {
     .row>.col-md-3 {
