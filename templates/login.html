@@ -15,7 +15,7 @@
                 hight: 100vh;
             }
             section {
-                width: 900px;
+                width: 90%;
                 height: 600px;
                 margin: 30px auto;
                 position: relative;
@@ -118,8 +118,19 @@
                 .text{
                     display: none;
                 }
+                section{
+                    justify-content: space-between;
+                }
                 .content {margin-right: 0px; margin: auto;}
                 
+            }
+            @media(max-width: 450px){
+                .input-box {width: 90%;}
+                .login-btn {
+                    display: block;
+                    width: 70%;
+                    margin: auto;
+                }
             }
         </style>
     </head>
