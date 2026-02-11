@@ -10,8 +10,12 @@
         <link rel="stylesheet" href="../static/style.css">
         <title>Signup</title>
         <style>
+            body{
+                display: flex;
+                hight: 100vh;
+            }
             section {
-                width: 900px;
+                width: 90%;
                 height: 600px;
                 margin: 30px auto;
                 position: relative;
@@ -106,6 +110,29 @@
                 position: relative;
                 z-index: 1;
             }
+            @media(max-width: 1000px){
+                body{
+                    align-items: center;
+                }
+                .text{
+                    display: none;
+                }
+                section{
+                    justify-content: space-between;
+                }
+                .content {margin-right: 0px; margin: auto;}
+                .main-header{
+                    margin: auto;
+                    text-align: center;}
+            }
+            @media(max-width: 450px){
+                .input-box {width: 90%;}
+                .login-btn {
+                    display: block;
+                    width: 70%;
+                    margin: auto;
+                }
+            }
         </style>
     </head>
 
@@ -117,7 +144,7 @@
             <div class="triangle-left"></div>
 
             <!-- الترحيب -->
-            <div class="content" style="max-width:350px; text-align:left; margin-top: 230px;">
+            <div class="content text" style="max-width:350px; text-align:left; margin-top: 230px;">
                 <h1 style="font-size: 55px; font-weight: 700; font-family:'Comme', sans-serif;">Welcome To</h1>
                 <h1 style="font-size: 55px; font-weight: 700; font-family:'Playfair Display', serif; color: #2d1e06; margin-left: 40px;">Homora</h1>
                 <p style="width: 240px; margin-left: 40px; font-size: small;">
