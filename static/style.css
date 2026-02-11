@@ -147,7 +147,7 @@ body {
 .box {
     display: block;
     background-color: #cfcfcf;
-    width: 750px;
+    width: 80%;
     height: 500px;
     border-radius: 30px;
     text-align: center;
