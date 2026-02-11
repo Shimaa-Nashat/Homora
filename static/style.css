@@ -135,7 +135,7 @@ body {
         flex: 0 0 50%;
         max-width: 50%;
     }
-    .box {width: 70%;}
+    .box {width: 80%;}
     .contact{width: 65%;}
 }
 @media (max-width: 768px) {
