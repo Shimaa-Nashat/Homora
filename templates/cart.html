@@ -8,7 +8,7 @@
                 <div class="cart-image me-3" id="card_img">
                     <img src="{{ url_for('static', filename=item.folder ~ '/' ~ item.image) }}" alt="{{ item.name }}" class="img-fluid" style="border-radius: 10px; max-width: 150px;">
                 </div>
-                <div class="cart-details flex-grow-1" style="margin: auto ; max-width: fit-content;">
+                <div class="cart-details flex-grow-1" style="margin: auto 5px; max-width: fit-content;">
                     <h5 class="mb-2">{{ item.name }}</h5>
                     <p class="mb-2">${{ '%.2f'|format(item.price) }}</p>
 
