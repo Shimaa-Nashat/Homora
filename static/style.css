@@ -64,6 +64,7 @@ body {
 /* ===== Card Title ===== */
 .card-title {
     font-family: "Inria Serif", serif;
+    font-size: 19px;
     margin-bottom: 20px;
     color: #000;
 }
@@ -138,6 +139,7 @@ body {
     }
     .box {width: 80%;}
     .contact{width: 65%;}
+    .card{margin: auto;}
 }
 @media (max-width: 768px) {
     .row>.col-md-3 {
