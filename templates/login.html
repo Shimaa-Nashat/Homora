@@ -10,6 +10,10 @@
         <link rel="stylesheet" href="../static/style.css">
         <title>Login</title>
         <style>
+            body{
+                display: flex;
+                hight: 100vh;
+            }
             section {
                 width: 900px;
                 height: 600px;
@@ -107,6 +111,16 @@
                 position: relative;
                 z-index: 1;
             }
+            @media(max-width: 1000px){
+                body{
+                    align-items: center;
+                }
+                .text{
+                    display: none;
+                }
+                .content {margin-right: 0px; margin: auto;}
+                
+            }
         </style>
     </head>
 
@@ -141,7 +155,7 @@
             </div>
 
             <!-- العمود الأيمن: الترحيب -->
-            <div class="content" style="max-width:350px; text-align:left; margin-left: 10px;">
+            <div class="content text" style="max-width:350px; text-align:left; margin-left: 10px;">
                 <h1 style="font-size: 55px; font-weight: 700; font-family:'Comme', sans-serif ;">Welcome To</h1>
                 <h1 style="font-size: 55px; font-weight: 700; font-family:'Playfair Display',serif ; color: #2d1e06; margin-left: 40px; ">Homora</h1>
                 <p style="width: 240px; margin-left: 110px; font-size: small;">
