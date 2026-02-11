@@ -2,6 +2,7 @@
 body {
     background-color: #B7ABAB;
     color: black;
+    hight:100vh;
 }
 .hidden {
       opacity: 0;
