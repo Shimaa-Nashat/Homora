@@ -90,8 +90,8 @@ body {
 
 .product_in_cart {
     display: flex;
-    width: 800px;
-    height: 200px;
+    width: 80%;
+    padding: 20px 5px;
     margin: 10px auto;
     background-color: #cfcfcf;
     border-radius: 30px;
@@ -102,9 +102,7 @@ body {
 
 /* ===== Cart Image ===== */
 #card_img {
-    display: block;
-    margin: auto 70px;
-    border-radius: 20px;
+    margin: auto;
 }
 
 /* ===== Cart Total ===== */
