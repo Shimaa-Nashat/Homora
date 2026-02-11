@@ -173,7 +173,10 @@
             }
 
             /* ===== Product Section ===== */
-
+            .product-section{
+                width: 80%;
+                margin: auto;
+            }
             /* الصف الأول: 3 بطاقات */
             .cards-container {
                 display: grid;
@@ -221,11 +224,11 @@
                 /* مركزة في المنتصف */
                 gap: 120px;
                 /* المسافة بين البطاقتين */
-                margin-top: 30px;
+                margin: 30px auto;
             }
 
             /* Responsive */
-            @media (max-width: 768px) {
+            @media (max-width: 1000px) {
                 .cards-container {
                     grid-template-columns: 1fr;
                     /* تصبح كل بطاقة في صف واحد */
@@ -235,6 +238,16 @@
                     flex-direction: column;
                     /* تصبح كل بطاقة في صف منفصل */
                     align-items: center;
+                }
+                .product-card {
+                    .product-card{
+                        width: 80%;
+                    }
+                    .product-card img {margin: 25px 25px;}
+                    .product-card h3 {
+                        display: flex;
+                        align-items: center;
+                    }
                 }
             }
 
