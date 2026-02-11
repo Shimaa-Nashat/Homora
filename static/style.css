@@ -2,7 +2,6 @@
 body {
     background-color: #B7ABAB;
     color: black;
-    hight:100vh;
 }
 .hidden {
       opacity: 0;
@@ -104,7 +103,7 @@ body {
 
 /* ===== Cart Image ===== */
 #card_img {
-    margin: auto;
+    margin: auto 5px;
 }
 
 /* ===== Cart Total ===== */
@@ -147,6 +146,14 @@ body {
         max-width: 100%;
     }
     .box {width: 90%;}
+}
+@media (max-width: 400px) {
+    .product_in_cart {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 }
 
 /* ===== Contact Box ===== */
