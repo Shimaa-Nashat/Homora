@@ -155,6 +155,7 @@ body {
         align-items: center;
         text-align: center;
     }
+    .box {   width: 80%;}
 }
 
 /* ===== Contact Box ===== */
