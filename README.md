@@ -2,12 +2,7 @@
 🚀 [Click Here to View the Project](https://shimaa-nashat.github.io/Portfolio/)
 
 
-This project is a **furniture store web application** built using **Flask** (Python).
-It allows users to browse furniture items such as kitchens, bedrooms, and dressing rooms,
-view detailed product information, and add items to their cart.
-
-The project demonstrates **web development fundamentals** including routing, templating,
-database integration, frontend styling, and interactive JavaScript features.
+This project is a furniture store web application built using Flask (Python) and demonstrates web development fundamentals including routing, templating, database integration, frontend styling, and interactive JavaScript features.
 
 ---
 
