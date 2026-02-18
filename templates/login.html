@@ -152,7 +152,7 @@
                     <input type="text" id="username" name="username" class="input-box" required><br>
 
                     <label for="password" class="input-title">Password</label><br>
-                    <input type="password" id="password" name="password" class="input-box" required><br>
+                    <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" class="input-box" required><br>
 
                     <button type="submit" class="login-btn">Login</button>
 
