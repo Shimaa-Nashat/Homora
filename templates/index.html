@@ -55,10 +55,10 @@
             /* ===== Hero Section ===== */
             .hero {
                 position: relative;
-                width: 100%;
-                max-width: 1350px;
+                width: 95%;
+                max-width: 1400px;
                 margin: 20px auto;
-                height: 520px;
+                height: 650px;
                 border-radius: 20px;
                 overflow: hidden;
             }
@@ -233,6 +233,11 @@
             }
 
             /* Responsive */
+            @media (max-width: 1300px) {
+                .hero {
+                    height: 520px;
+                }
+            }
             @media (max-width: 1000px) {
                 .cards-container {
                     grid-template-columns: 1fr;
