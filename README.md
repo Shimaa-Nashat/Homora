@@ -1,5 +1,5 @@
 # Furniture Store Web Application 🛋️
-🚀 [Click Here to View the Project](homora-tawny.vercel.app)
+🚀 [Click Here to View the Project](https://homora-tawny.vercel.app/)
 
 
 This project is a furniture store web application built using Flask (Python) and demonstrates web development fundamentals including routing, templating, database integration, frontend styling, and interactive JavaScript features.
