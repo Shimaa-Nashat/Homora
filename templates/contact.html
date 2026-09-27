@@ -1,0 +1,5 @@
+{% extends "layout.html" %}
+{% block title %}Say hello — Homora{% endblock %}
+{% block body %}
+<section class="contact-page"><div class="contact-copy"><p class="eyebrow">WE’RE HERE FOR YOU</p><h1>Let’s talk<br><em>about home.</em></h1><p>Need a hand finding the right piece? Have a question about an order? Leave us a note and our team will be happy to help.</p><div class="contact-aside"><span>✦</span><p>Good things start with a conversation.</p></div></div><form class="contact-form" action="{{ url_for('contact') }}" method="post"><label>Your name<input type="text" name="name" autocomplete="name" required></label><div class="form-row"><label>Email address<input type="email" name="email" autocomplete="email" required></label><label>Phone number<input type="tel" name="number" autocomplete="tel" required></label></div><label>Your message<textarea name="message" rows="5" required></textarea></label><button class="button button-dark" type="submit">Send your note <span>↗</span></button><small>We’ll only use your details to reply to your message.</small></form></section>
+{% endblock %}

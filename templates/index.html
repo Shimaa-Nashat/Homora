@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}Homora — thoughtful living{% endblock %}
+{% block body %}
+<section class="hero-home">
+    <img class="hero-image" src="{{ url_for('static', filename='Home_photos/welcome.jpg') }}" alt="A warm, sunlit living room">
+    <div class="hero-shade"></div>
+    <div class="hero-content"><p class="eyebrow light">THE ART OF FEELING AT HOME</p><h1>Spaces that feel<br><em>like you.</em></h1><p>Furniture for the everyday moments that make a home.</p><a class="button button-light" href="#collections">Explore the collection <span>↗</span></a></div>
+    <div class="hero-caption"><span>01 / 05</span><span>Designed for the way you live</span></div>
+</section>
+<section class="intro-section" id="story"><div class="eyebrow">A HOME, MORE YOU</div><h2>Good design makes<br>everyday feel <em>special.</em></h2><p>We believe the best rooms tell your story. Discover considered furniture that brings comfort, character and a little more joy to the everyday.</p><a class="underlined-link" href="{{ url_for('contact') }}">Get to know Homora <span>↗</span></a></section>
+<section class="collection-section" id="collections"><div class="section-heading"><div><p class="eyebrow">FIND YOUR FEELING</p><h2>Shop by <em>room</em></h2></div><p>Thoughtful pieces, made for the spaces<br>where life happens.</p></div>
+    <div class="collection-grid">
+        {% for key, value in categories.items() %}
+        {% set image = {'bedroom':'bedroom.jfif','living':'livingroom.jfif','kitchen':'Kitchen.jfif','dressing':'Closet.jfif','office':'HomeOffice.jfif'}[key] %}
+        <a class="collection-card collection-{{ key }}" href="{{ url_for(key) }}"><img src="{{ url_for('static', filename='Home_photos/' ~ image) }}" alt="{{ value[0] }} furniture"><span class="collection-label"><span>{{ value[0] }}</span><span class="round-arrow">↗</span></span></a>
+        {% endfor %}
+    </div>
+</section>
+{% if featured %}<section class="featured-section"><div class="section-heading"><div><p class="eyebrow">THE HOMORA EDIT</p><h2>Pieces to <em>love</em></h2></div><a class="underlined-link" href="#collections">Explore all rooms <span>↗</span></a></div><div class="product-grid featured-grid">{% for item in featured %}<article class="product-card"><a href="{{ url_for(category_endpoints.get(item.category, 'index')) }}"><div class="product-image"><img src="{{ url_for('static', filename=item.folder ~ '/' ~ item.image) }}" alt="{{ item.name }}" loading="lazy"></div></a><div class="product-meta"><div><h3>{{ item.name }}</h3><p>{{ item.category|title }}</p></div><strong>${{ '%.2f'|format(item.price) }}</strong></div></article>{% endfor %}</div></section>{% endif %}
+<section class="promise-band"><div><span>✦</span><p>Considered design</p></div><div><span>✦</span><p>Made for real life</p></div><div><span>✦</span><p>Comfort comes first</p></div></section>
+{% endblock %}

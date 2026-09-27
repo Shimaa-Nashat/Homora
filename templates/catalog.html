@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block title %}{{ title }} — Homora{% endblock %}
+{% block body %}
+<section class="catalog-intro"><a class="back-link" href="{{ url_for('index') }}#collections">← All rooms</a><p class="eyebrow">THE HOMORA COLLECTION</p><h1>{{ title }}</h1><p>{{ description }}</p></section>
+<section class="catalog-content"><div class="catalog-toolbar"><span>{{ products|length }} thoughtfully chosen pieces</span><span>Designed for everyday living</span></div>
+{% if products %}<div class="product-grid">{% for item in products %}<article class="product-card"><div class="product-image"><img src="{{ url_for('static', filename=(item.folder or folder) ~ '/' ~ item.image) }}" alt="{{ item.name }}" loading="lazy"><span class="product-tag">HOMORA PICK</span></div><div class="product-meta"><div><h2>{{ item.name }}</h2><p>{{ title }}</p></div><strong>${{ '%.2f'|format(item.price) }}</strong></div><form action="{{ url_for('add_to_cart') }}" method="post"><input type="hidden" name="item_id" value="{{ item.id }}"><button class="button button-dark add-button" type="submit">Add to bag <span>+</span></button></form></article>{% endfor %}</div>
+{% else %}<div class="empty-state"><span class="empty-mark">✦</span><h2>Something lovely is on its way.</h2><p>We are refreshing this collection. Check back soon.</p><a class="button button-dark" href="{{ url_for('index') }}#collections">Explore other rooms <span>↗</span></a></div>{% endif %}
+</section>
+{% endblock %}

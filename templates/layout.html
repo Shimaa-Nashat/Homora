@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Thoughtful furniture and considered pieces for a home that feels like you.">
+    <title>{% block title %}Homora — thoughtful living{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="announcement">A considered home begins with the pieces you love <span>✦</span> Thoughtful design, made for living</div>
+    <header class="site-header">
+        <a class="brand" href="{{ url_for('index') }}" aria-label="Homora home">homora<span>.</span></a>
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">☰</button>
+        <nav id="main-nav" class="main-nav">
+            <a href="{{ url_for('index') }}#collections">Collections</a>
+            <a href="{{ url_for('index') }}#story">Our story</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+        <div class="header-actions">
+            {% if username %}<span class="welcome-user">Hi, {{ username }}</span>{% endif %}
+            <a class="icon-link" href="{{ url_for('cart') }}" aria-label="Shopping bag">Bag <span class="bag-count">{{ cart_count }}</span></a>
+            {% if username %}
+                <form action="{{ url_for('logout') }}" method="post"><button class="text-button" type="submit">Sign out</button></form>
+            {% else %}<a class="text-button" href="{{ url_for('login') }}">Sign in</a>{% endif %}
+        </div>
+    </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}<div class="flash-wrap">{% for category, message in messages %}<div class="flash {{ category }}" role="status">{{ message }}</div>{% endfor %}</div>{% endif %}
+    {% endwith %}
+    <main>{% block body %}{% endblock %}</main>
+    <footer class="site-footer">
+        <div class="footer-top"><div><a class="brand footer-brand" href="{{ url_for('index') }}">homora<span>.</span></a><p>Make room for the life you love.</p></div><div class="footer-links"><a href="{{ url_for('index') }}#collections">Shop collections</a><a href="{{ url_for('contact') }}">Get in touch</a><a href="{{ url_for('cart') }}">Your bag</a></div><div class="footer-note">Thoughtfully chosen.<br>Made to feel like home.</div></div>
+        <div class="footer-bottom"><span>© 2026 Homora Studio</span><span>Designed for living, wherever you call home.</span></div>
+    </footer>
+    <script src="{{ url_for('static', filename='site.js') }}" defer></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

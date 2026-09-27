@@ -1,0 +1,74 @@
+<section class="auth-page">
+  <div class="auth-image">
+    <img
+      src="{{ url_for('static', filename='Home_photos/about.jfif') }}"
+      alt="A thoughtfully furnished Homora interior"
+    />
+    <div>
+      <p class="eyebrow light">MAKE YOURSELF AT HOME</p>
+      <h2>Come on in.<br /><em>Stay a while.</em></h2>
+    </div>
+  </div>
+  <div class="auth-content">
+    <p class="eyebrow">
+      {{ 'JOIN THE HOMORA FAMILY' if signup_mode else 'WELCOME BACK' }}
+    </p>
+    <h1>{{ 'Create your account' if signup_mode else 'Sign in to Homora' }}</h1>
+    <p class="auth-subtitle">
+      {{ 'Save your favourites and keep your home inspiration close.' if
+      signup_mode else 'Your next favourite piece is just around the corner.' }}
+    </p>
+    <form
+      class="auth-form"
+      method="post"
+      action="{{ url_for('signup' if signup_mode else 'login') }}"
+    >
+      <label
+        >Username<input
+          type="text"
+          name="username"
+          autocomplete="username"
+          required
+          minlength="2"
+      /></label>
+      {% if signup_mode %}<label
+        >Email address<input
+          type="email"
+          name="email"
+          autocomplete="email"
+          required /></label
+      >{% endif %}
+      <label
+        >Password<input
+          type="password"
+          name="password"
+          autocomplete="{{ 'new-password' if signup_mode else 'current-password' }}"
+          required
+          {%
+          if
+          signup_mode
+          %}minlength="8"
+          {%
+          endif
+          %}
+      /></label>
+      {% if signup_mode %}<label
+        >Confirm password<input
+          type="password"
+          name="confirm_password"
+          autocomplete="new-password"
+          required
+          minlength="8" /></label
+      >{% endif %}
+      <button class="button button-dark" type="submit">
+        {{ 'Create account' if signup_mode else 'Sign in' }} <span>↗</span>
+      </button>
+    </form>
+    <p class="auth-switch">
+      {{ 'Already have an account?' if signup_mode else 'New to Homora?' }}
+      <a href="{{ url_for('login' if signup_mode else 'signup') }}"
+        >{{ 'Sign in' if signup_mode else 'Create an account' }}</a
+      >
+    </p>
+  </div>
+</section>
